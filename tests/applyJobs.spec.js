@@ -5,8 +5,9 @@ import { test, expect } from '@playwright/test';
 test("Naukri",async ({page})=>{
 
     
-    const username = process.env.NAUKRI_PASSWORD;
+    const username = process.env.EMAIL;
     const password = process.env.NAUKRI_PASSWORD;
+    
     await page.goto("https://www.naukri.com");
     await expect(await page.getByTitle('Jobseeker Login')).toBeVisible();
 

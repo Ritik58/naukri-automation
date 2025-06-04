@@ -4,16 +4,14 @@ require('dotenv').config();
 test("Naukri",async ({page})=>{
 
     const email = process.env.NAUKRI_EMAIL;
-    console.log(email);
     const password = process.env.NAUKRI_PASSWORD;
-        console.log(password);
 
     await page.goto("https://www.naukri.com");
-
     await page.getByTitle("Jobseeker Login").click();
 
     await page.getByPlaceholder("Enter your active Email ID / Username").fill(email);
     await page.getByPlaceholder('Enter your password').fill(password);
+    
     await page.click('(//button[contains(text(),"Login")])[1]');
     await expect(page).toHaveURL("https://www.naukri.com/mnjuser/homepage");
     
